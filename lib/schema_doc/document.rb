@@ -6,7 +6,7 @@ module SchemaDoc
       def read
         document = []
 
-        descendants_group_by_table_name.each do |table_name, descendants|
+        descendants_group_by_table_name.sort.each do |table_name, descendants|
           document << template(table_name, descendants)
         end
 
