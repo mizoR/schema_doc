@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = SchemaDoc::VERSION
   spec.authors       = ["mizokami"]
   spec.email         = ["suzunatsu@yahoo.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Output database schema in markdown style.}
+  spec.summary       = %q{Output database schema in markdown style.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
