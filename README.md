@@ -1,24 +1,42 @@
 # SchemaDoc
 
-TODO: Write a gem description
+SchemaDoc outputs database schema for your Rails applications in markdown style
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'schema_doc'
+    gem 'schema_doc', :github => 'mizoR/schema_doc'
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install schema_doc
-
 ## Usage
 
-TODO: Write usage instructions here
+```
+$ rake schema_doc:out
+```
+
+When your Rails application has following models:
+
+```ruby
+
+class User < ActiveRecord::Base
+  has_one :blog, :foreign_key => :owner_id
+end
+
+class Blog < ActiveRecord::Base
+  has_many   :entries
+  belongs_to :owner, :class_name => 'User'
+end
+
+class Entry < ActiveRecord::Base
+  belongs_to :blog
+end
+```
+
+SchemaDoc will output [THIS](https://github.com/mizoR/schema_doc/tree/master/example/sample_output.md).
 
 ## Contributing
 
