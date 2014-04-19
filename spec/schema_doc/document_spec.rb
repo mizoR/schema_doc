@@ -1,9 +1,6 @@
 require 'helper'
 
 describe SchemaDoc::Document do
-  it do
-  puts SchemaDoc::Document.read
-  end
   describe 'send(:template)' do
     let :template do
       SchemaDoc::Document.send(:template, *args)
