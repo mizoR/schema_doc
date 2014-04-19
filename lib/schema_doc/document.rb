@@ -7,7 +7,7 @@ module SchemaDoc
         document = []
 
         descendants_group_by_table_name.sort.each do |table_name, descendants|
-          document << template(table_name, descendants)
+          document << table_document(table_name, descendants)
         end
 
         document.join
@@ -15,21 +15,15 @@ module SchemaDoc
 
       private
 
-      def template(table_name, descendant)
-        case descendant
-        when Array
-          "# #{table_name}\n" + descendant.map {|d| template(table_name, d)}.join
-        else
-          ERB.new(<<MARKDOWN).result(binding)
-<%# coding: UTF-8 %>
-## <%= descendant %>
+      def table_document(table_name, descendants)
+        template_path = SchemaDoc.root + '/lib/schema_doc/templates/document_header.md.erb'
+        ERB.new(File.read(template_path)).result(binding)
+        "# #{table_name}\n" + descendants.map {|d| model_document(table_name, d)}.join
+      end
 
-| name | human name | sql type | primary | default | limit |
-| ---- | ---------- | -------- | ------- | ------- | ----- |
-<% descendant.columns.each do |column| %>| <%= column.name %> | <%= descendant.human_attribute_name(column.name) %> | <%= column.sql_type %> | <%= column.primary %> | <%= column.default %> | <%= column.limit %> |
-<% end %>
-MARKDOWN
-        end
+      def model_document(table_name, descendant)
+        template_path = SchemaDoc.root + '/lib/schema_doc/templates/document_body.md.erb'
+        ERB.new(File.read(template_path)).result(binding)
       end
 
       def descendants
