@@ -6,7 +6,7 @@ SchemaDoc outputs database schema for your Rails applications in markdown style
 
 Add this line to your application's Gemfile:
 
-    gem 'schema_doc', :github => 'mizoR/schema_doc'
+    gem 'schema_doc'
 
 And then execute:
 
