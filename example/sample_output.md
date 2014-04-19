@@ -1,4 +1,3 @@
-
 # blogs
 
 ## Blog
@@ -6,8 +5,9 @@
 | name | human name | sql type | primary | default | limit |
 | ---- | ---------- | -------- | ------- | ------- | ----- |
 | id | Id | INTEGER | true |  |  |
-| name | Name | varchar(255) | false |  | 255 |
+| name | Blog Name | varchar(255) | false |  | 255 |
 | owner_id | Owner | integer | false |  |  |
+
 
 # entries
 
@@ -16,8 +16,9 @@
 | name | human name | sql type | primary | default | limit |
 | ---- | ---------- | -------- | ------- | ------- | ----- |
 | id | Id | INTEGER | true |  |  |
-| title | Title | varchar(255) | false |  | 255 |
-| body | Body | varchar(255) | false |  | 255 |
+| title | Entry Title | varchar(255) | false |  | 255 |
+| body | Entry Body | varchar(255) | false |  | 255 |
+
 
 # users
 
@@ -26,5 +27,4 @@
 | name | human name | sql type | primary | default | limit |
 | ---- | ---------- | -------- | ------- | ------- | ----- |
 | id | Id | INTEGER | true |  |  |
-| nick | Nick | varchar(255) | false |  | 255 |
-
+| nick | Nickname | varchar(255) | false |  | 255 |

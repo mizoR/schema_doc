@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        nick: Nickname
+      entry:
+        title: Entry Title
+        body:  Entry Body
+      blog:
+        name: Blog Name
+

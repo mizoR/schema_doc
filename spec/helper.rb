@@ -2,10 +2,12 @@ require 'schema_doc'
 require 'active_record'
 
 dbfile = File.join(SchemaDoc.root, 'spec/db/test.sqlite3')
-
 if File.exist?(dbfile)
   File.delete(dbfile)
 end
+
+locales_dir = File.join(SchemaDoc.root, 'spec/locales')
+I18n.load_path << locales_dir + '/en.yml'
 
 ActiveRecord::Base.establish_connection(
   'adapter'  => 'sqlite3',
@@ -64,4 +66,3 @@ end
 class Entry < ActiveRecord::Base
   belongs_to :blog
 end
-
