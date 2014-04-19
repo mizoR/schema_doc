@@ -1,4 +1,4 @@
-# SchemaDoc
+# SchemaDoc [![Build Status](https://secure.travis-ci.org/mizoR/schema_doc.png)](https://travis-ci.org/mizoR/schema_doc) 
 
 SchemaDoc outputs database schema for your Rails applications in markdown style
 
