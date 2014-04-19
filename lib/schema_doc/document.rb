@@ -6,8 +6,8 @@ module SchemaDoc
       def read
         document = []
 
-        descendants_group_by_table_name.sort.each do |table_name, descendants|
-          document << table_document(table_name, descendants)
+        model_classes_group_by_table_name.sort.each do |table_name, model_classes|
+          document << table_document(table_name, model_classes)
         end
 
         document.join
@@ -15,24 +15,26 @@ module SchemaDoc
 
       private
 
-      def table_document(table_name, descendants)
+      def table_document(table_name, model_classes)
         template_path = SchemaDoc.root + '/lib/schema_doc/templates/document_header.md.erb'
         ERB.new(File.read(template_path)).result(binding)
-        "# #{table_name}\n" + descendants.map {|d| model_document(table_name, d)}.join
+        "# #{table_name}\n" + model_classes.map { |model_class|
+          model_document(table_name, model_class)
+        }.join
       end
 
-      def model_document(table_name, descendant)
+      def model_document(table_name, model_class)
         template_path = SchemaDoc.root + '/lib/schema_doc/templates/document_body.md.erb'
         ERB.new(File.read(template_path)).result(binding)
       end
 
-      def descendants
+      def model_classes
         ActiveRecord::Base.descendants
       end
 
-      def descendants_group_by_table_name
-        descendants.group_by {|descendant|
-          descendant.table_name
+      def model_classes_group_by_table_name
+        model_classes.group_by {|model_class|
+          model_class.table_name
         }
       end
     end

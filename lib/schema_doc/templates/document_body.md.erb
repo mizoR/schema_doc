@@ -1,8 +1,8 @@
 <%# coding: UTF-8 %>
-## <%= descendant %>
+## <%= model_class %>
 
 | name | human name | sql type | primary | default | limit |
 | ---- | ---------- | -------- | ------- | ------- | ----- |
-<% descendant.columns.each do |column| %>| <%= column.name %> | <%= descendant.human_attribute_name(column.name) %> | <%= column.sql_type %> | <%= column.primary %> | <%= column.default %> | <%= column.limit %> |
+<% model_class.columns.each do |column| %>| <%= column.name %> | <%= model_class.human_attribute_name(column.name) %> | <%= column.sql_type %> | <%= column.primary %> | <%= column.default %> | <%= column.limit %> |
 <% end %>
 
