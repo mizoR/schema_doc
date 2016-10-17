@@ -6,7 +6,7 @@ module SchemaDoc
       def read
         document = []
 
-        model_classes_group_by_table_name.sort_by {|k, _| k }.each do |table_name, model_classes|
+        model_classes_group_by_table_name.sort.each do |table_name, model_classes|
           document << table_document(table_name, model_classes)
         end
 
