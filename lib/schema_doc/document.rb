@@ -33,7 +33,7 @@ module SchemaDoc
       end
 
       def model_classes_group_by_table_name
-        model_classes.group_by {|model_class|
+        model_classes.select(&:table_exists?).group_by {|model_class|
           model_class.table_name
         }
       end
