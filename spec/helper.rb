@@ -14,7 +14,7 @@ ActiveRecord::Base.establish_connection(
   'database' => dbfile
 )
 
-class CreateUsers < ActiveRecord::Migration
+class CreateUsers < ActiveRecord::Migration[6.0]
   def self.up
     create_table :users do |t|
       t.string  :nick
@@ -26,7 +26,7 @@ class CreateUsers < ActiveRecord::Migration
   end
 end
 
-class CreateBlogs < ActiveRecord::Migration
+class CreateBlogs < ActiveRecord::Migration[6.0]
   def self.up
     create_table :blogs do |t|
       t.string  :name
@@ -39,7 +39,7 @@ class CreateBlogs < ActiveRecord::Migration
   end
 end
 
-class CreateEntries < ActiveRecord::Migration
+class CreateEntries < ActiveRecord::Migration[6.0]
   def self.up
     create_table :entries do|t|
       t.string  :title
