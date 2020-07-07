@@ -1,6 +1,18 @@
 require 'helper'
 
 describe SchemaDoc::Document do
+  describe '.read' do
+    subject { described_class.read }
+    let(:blog) { subject.index('Blog') }
+    let(:user) { subject.index('User') }
+    let(:another_user) { subject.index('AnotherUser') }
+
+    it 'sorts by tables then model names' do
+      expect(another_user).to be < user
+      expect(blog).to be < another_user
+    end
+  end
+
   describe 'send(:table_document)' do
     let :document do
       SchemaDoc::Document.send(:table_document, *args)

@@ -66,3 +66,7 @@ end
 class Entry < ActiveRecord::Base
   belongs_to :blog
 end
+
+class AnotherUser < ActiveRecord::Base
+  self.table_name = 'users'
+end
