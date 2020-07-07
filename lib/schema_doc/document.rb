@@ -7,7 +7,7 @@ module SchemaDoc
         document = []
 
         model_classes_group_by_table_name.sort.each do |table_name, model_classes|
-          document << table_document(table_name, model_classes)
+          document << table_document(table_name, model_classes.sort_by(&:name))
         end
 
         document.join
