@@ -29,7 +29,7 @@ module SchemaDoc
       end
 
       def model_classes
-        SchemaDoc.configuration.model_classes.try(:call)
+        ActiveRecord::Base.descendants
       end
 
       def model_classes_group_by_table_name
