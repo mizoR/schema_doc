@@ -38,6 +38,16 @@ end
 
 SchemaDoc will output [THIS](https://github.com/mizoR/schema_doc/tree/master/example/sample_output.md).
 
+## Optional Configuration
+
+If you want to customize the models that are listed, you can create a `config/initializers/schema_doc.rb` as shown in the example below:
+
+```ruby
+SchemaDoc.configure do |config|
+  config.model_classes = Proc.new { ApplicationRecord.descendants.select{ |klass| klass.superclass.name == ApplicationRecord.name } }
+end
+```
+
 ## Contributing
 
 1. Fork it
