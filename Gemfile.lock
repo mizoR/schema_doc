@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    schema_doc (0.0.2)
+    schema_doc (0.0.3)
 
 GEM
   remote: https://rubygems.org/
